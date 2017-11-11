@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>hamming-distance | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="461. Hamming DistanceDescriptionexample:x: 0 0 0 1y: 0 1 0 0 x ^ y : 0 1 0 1after doing xor, we will get all distinct 1sthen we could do val &amp;amp; val - 1123456789int hammingDistance(int x, int y) &amp;#1">
+<meta name="keywords" content="bit-manipulation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hamming-distance">
+<meta property="og:url" content="http://yoursite.com/2017/11/09/hamming-distance/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="461. Hamming DistanceDescriptionexample:x: 0 0 0 1y: 0 1 0 0 x ^ y : 0 1 0 1after doing xor, we will get all distinct 1sthen we could do val &amp;amp; val - 1123456789int hammingDistance(int x, int y) &amp;#1">
+<meta property="og:updated_time" content="2017-11-10T07:55:01.788Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hamming-distance">
+<meta name="twitter:description" content="461. Hamming DistanceDescriptionexample:x: 0 0 0 1y: 0 1 0 0 x ^ y : 0 1 0 1after doing xor, we will get all distinct 1sthen we could do val &amp;amp; val - 1123456789int hammingDistance(int x, int y) &amp;#1">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hamming-distance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/09/hamming-distance/" class="article-date">
+  <time datetime="2017-11-10T07:24:24.000Z" itemprop="datePublished">2017-11-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hamming-distance
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="461-Hamming-Distance"><a href="#461-Hamming-Distance" class="headerlink" title="461. Hamming Distance"></a>461. Hamming Distance</h1><p><a href="https://leetcode.com/problems/hamming-distance/description/" target="_blank" rel="external">Description</a><br>example:<br>x: 0 0 0 1<br>y: 0 1 0 0</p>
+<p>x ^ y : 0 1 0 1<br>after doing xor, we will get all distinct 1s<br>then we could do val &amp; val - 1<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">hammingDistance</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val = x ^ y;</div><div class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (val != <span class="number">0</span>) &#123;</div><div class="line">            ++cnt;</div><div class="line">            val = val &amp; val - <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cnt;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="477-Total-Hamming-Distance"><a href="#477-Total-Hamming-Distance" class="headerlink" title="477 Total Hamming Distance"></a>477 Total Hamming Distance</h1><p>example:<br>4:     0 1 0 0<br>14:    1 1 1 0<br>2:     0 0 1 0<br>1:     0 0 0 1</p>
+<p>let’s look at the last digit, we got 0 0 0 1, so the hamming distance is 3<br>Then look at the 3rd digit, we got 0 1 1 0, each 1 has 2 hamming distance with 0, so total is 4. The 2nd digits is also 4, the first digit is 1<br>In total it’s 3 + 4 + 4 + 3 = 20</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">totalHammingDistance</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>, n = nums.size();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; ++i) &#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</div><div class="line">            <span class="keyword">if</span> (num &amp; (<span class="number">1</span> &lt;&lt; i)) &#123;</div><div class="line">                ++cnt;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        ans += cnt * (n - cnt);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/09/hamming-distance/" data-id="cj9v414yw00015gqm62cyzyco" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bit-manipulation/">bit-manipulation</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/10/subarray-porblems/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          subarray-porblems
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/09/bit-manipulation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">bit-manipulation</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit/">bit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit-manipulation</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/bit/" style="font-size: 10px;">bit</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit-manipulation</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/10/subarray-porblems/">subarray-porblems</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/09/hamming-distance/">hamming-distance</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/09/bit-manipulation/">bit-manipulation</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/01/interleaving-string/">interleaving-string</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/31/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

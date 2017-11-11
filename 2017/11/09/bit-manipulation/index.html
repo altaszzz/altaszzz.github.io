@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2017/10 | Hexo</title>
+  <title>bit-manipulation | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/10/index.html">
+  <meta name="description" content="how to calculate number of 1s in the number12345678int countOne(int num) &amp;#123;int val = num;int cnt = 0;while (val != 0) &amp;#123;    ++cnt;    val = val &amp;amp; val - 1;&amp;#125;return cnt">
+<meta name="keywords" content="bit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bit-manipulation">
+<meta property="og:url" content="http://yoursite.com/2017/11/09/bit-manipulation/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="how to calculate number of 1s in the number12345678int countOne(int num) &amp;#123;int val = num;int cnt = 0;while (val != 0) &amp;#123;    ++cnt;    val = val &amp;amp; val - 1;&amp;#125;return cnt">
+<meta property="og:updated_time" content="2017-11-10T07:14:57.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="bit-manipulation">
+<meta name="twitter:description" content="how to calculate number of 1s in the number12345678int countOne(int num) &amp;#123;int val = num;int cnt = 0;while (val != 0) &amp;#123;    ++cnt;    val = val &amp;amp; val - 1;&amp;#125;return cnt">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,39 +64,63 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/10/31/hello-world/" class="archive-article-date">
-  <time datetime="2017-11-01T06:18:11.220Z" itemprop="datePublished">Oct 31</time>
+        <section id="main"><article id="post-bit-manipulation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/09/bit-manipulation/" class="article-date">
+  <time datetime="2017-11-10T07:12:00.000Z" itemprop="datePublished">2017-11-09</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/31/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      bit-manipulation
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="how-to-calculate-number-of-1s-in-the-number"><a href="#how-to-calculate-number-of-1s-in-the-number" class="headerlink" title="how to calculate number of 1s in the number"></a>how to calculate number of 1s in the number</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">countOne</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> val = num;</div><div class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line"><span class="keyword">while</span> (val != <span class="number">0</span>) &#123;</div><div class="line">    ++cnt;</div><div class="line">    val = val &amp; val - <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> cnt</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/09/bit-manipulation/" data-id="cj9v414yy00025gqmms89bcbs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bit/">bit</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/09/hamming-distance/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hamming-distance
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/01/interleaving-string/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">interleaving-string</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

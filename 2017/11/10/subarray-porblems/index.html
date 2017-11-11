@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>subarray-porblems | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="560. Subarray Sum Equals KGiven an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k. ExampleInput: nums = [1,1,1], k = 2Output: 2 123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="subarray-porblems">
+<meta property="og:url" content="http://yoursite.com/2017/11/10/subarray-porblems/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="560. Subarray Sum Equals KGiven an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k. ExampleInput: nums = [1,1,1], k = 2Output: 2 123">
+<meta property="og:updated_time" content="2017-11-11T09:08:47.876Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="subarray-porblems">
+<meta name="twitter:description" content="560. Subarray Sum Equals KGiven an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k. ExampleInput: nums = [1,1,1], k = 2Output: 2 123">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-subarray-porblems" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/10/subarray-porblems/" class="article-date">
+  <time datetime="2017-11-11T07:22:01.000Z" itemprop="datePublished">2017-11-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      subarray-porblems
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="560-Subarray-Sum-Equals-K"><a href="#560-Subarray-Sum-Equals-K" class="headerlink" title="560. Subarray Sum Equals K"></a>560. Subarray Sum Equals K</h1><p>Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.</p>
+<p><strong>Example</strong><br>Input: nums = [1,1,1], k = 2<br>Output: 2</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">unsigned</span>&gt; m;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    m[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i) &#123;</div><div class="line">            sum += nums[i];</div><div class="line">            <span class="keyword">int</span> target = sum - k;</div><div class="line">            <span class="keyword">if</span> (m.find(target) != m.end()) &#123;</div><div class="line">                cnt += m[target];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (m.find(sum) == m.end()) &#123;</div><div class="line">                  m[sum] = <span class="number">0</span>;</div><div class="line">             &#125;</div><div class="line">            m[sum]++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cnt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>In the solution above, we have a hash map, the <strong>key</strong> of the hash map is sum of first i elements. the <strong>value</strong> in the hash map is the occurences of the sum.</p>
+<p><strong>Note</strong> we have to put <strong>m[0]=1</strong> in the hash map.<br>Why? The idea of having the hash map is to find if sum - k exist or not. if sum == k, then the sum from the first index to current index will be k. so we make m[0] = 1</p>
+<h1 id="523-Continuous-Subarray-Sum"><a href="#523-Continuous-Subarray-Sum" class="headerlink" title="523. Continuous Subarray Sum"></a>523. Continuous Subarray Sum</h1><p>Math : if a % k = x and b % k = x -&gt; (a - b) % x = 0</p>
+<p>Note in this problem, we have to make sure the size of the sub-array has to be greater and equal than 2, so we have a hash map here to remember the index</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">checkSubarraySum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; m;</div><div class="line">    m[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i) &#123;</div><div class="line">        sum += nums[i];</div><div class="line">        <span class="keyword">int</span> tmp = k == <span class="number">0</span> ? sum : sum % k;</div><div class="line">        <span class="keyword">if</span> (m.count(tmp)) &#123;</div><div class="line">            <span class="keyword">int</span> length = i + <span class="number">1</span> - m[tmp];</div><div class="line">            <span class="keyword">if</span> (length &gt; <span class="number">1</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            m[tmp] = i + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="525-Contiguous-Array"><a href="#525-Contiguous-Array" class="headerlink" title="525. Contiguous Array"></a>525. Contiguous Array</h1><p>Need a trick to calculate the sum of first i elements<br>When meeting a 1, we add 1 to the sum, when meet a 0, we add -1 to the sum.<br>so when sum(i) == sum(j) that’s been said between i and j (in-inclusive), we have same amount of 1 and 0</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMaxLength</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> n = nums.size();</div><div class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; m;</div><div class="line">    m[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i) &#123;</div><div class="line">        sum += nums[i] == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">-1</span>;</div><div class="line">        <span class="keyword">if</span> (m.count(sum)) &#123;</div><div class="line">            <span class="keyword">int</span> length = i + <span class="number">1</span> - m[sum];</div><div class="line">            ans = max&lt;<span class="keyword">int</span>&gt;(length, ans);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            m[sum] = i + <span class="number">1</span>;</div><div class="line">            <span class="comment">// if index is i</span></div><div class="line">            <span class="comment">// which means that's the first i + 1 elements</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/10/subarray-porblems/" data-id="cj9v414yt00005gqmiyrysi61" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/09/hamming-distance/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hamming-distance</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit/">bit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bit-manipulation/">bit-manipulation</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/bit/" style="font-size: 10px;">bit</a> <a href="/tags/bit-manipulation/" style="font-size: 10px;">bit-manipulation</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/10/subarray-porblems/">subarray-porblems</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/09/hamming-distance/">hamming-distance</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/09/bit-manipulation/">bit-manipulation</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/01/interleaving-string/">interleaving-string</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/31/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
